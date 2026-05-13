@@ -1,3 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AfritextExchange</string>
+    <string name="tagline">Connecting students, sharing knowledge</string>
+    <string name="btn_sign_up">Sign Up</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_add_textbook">ADD Textbook</string>
+    <string name="btn_send_enquiry">Send enquiry</string>
+    <string name="btn_send_message">send Message</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_email">Student Email</string>
+    <string name="hint_student_id">Student ID</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_book_title">Book Title</string>
+    <string name="hint_author">Author</string>
+    <string name="hint_price">Price (R)</string>
+    <string name="hint_search">Search Textbook...</string>
+    <string name="hint_message">Message</string>
+    <string name="label_featured">Featured Books</string>
+    <string name="label_latest">Latest listings</string>
+    <string name="already_have_account">Already have an account</string>
+    <string name="error_empty_field">This field cannot be empty</string>
+    <string name="error_invalid_email">Please enter a valid student email</string>
+    <string name="error_short_password">Password must be over 6 characters</string>
+    <string name="error_invalid_price">Please enter a valid price</string>
 </resources>

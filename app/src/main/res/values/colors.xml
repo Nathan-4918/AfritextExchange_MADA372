@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- AfriText brand palette (Pan-African inspired) -->
+    <color name="afritext_gold">#F5A623</color>
+    <color name="afritext_green">#2E7D32</color>
+    <color name="afritext_red">#C62828</color>
+    <color name="afritext_earth">#6D4C41</color>
+    <color name="afritext_cream">#FFF8E1</color>
+    <color name="afritext_dark">#1A1A1A</color>
+    <color name="afritext_surface">#FFFFFF</color>
+    <color name="afritext_on_surface">#212121</color>
+    <color name="afritext_secondary_text">#757575</color>
+    <color name="afritext_divider">#E0E0E0</color>
 </resources>

@@ -1,9 +1,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.AfritextExchange" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Theme.AfritextExchange" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/afritext_gold</item>
+        <item name="colorPrimaryVariant">@color/afritext_earth</item>
+        <item name="colorOnPrimary">@color/afritext_dark</item>
+        <item name="colorSecondary">@color/afritext_green</item>
+        <item name="colorOnSecondary">@color/afritext_surface</item>
+        <item name="android:statusBarColor">@color/afritext_dark</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.AfritextExchange" parent="Base.Theme.AfritextExchange" />
+    <style name="Theme.AfritextExchange.Splash" parent="Theme.AfritextExchange">
+        <item name="android:windowBackground">@color/afritext_dark</item>
+    </style>
+
+    <style name="AfriText.Button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/afritext_gold</item>
+        <item name="android:textColor">@color/afritext_dark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="AfriText.InputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/afritext_gold</item>
+        <item name="hintTextColor">@color/afritext_secondary_text</item>
+    </style>
 </resources>
