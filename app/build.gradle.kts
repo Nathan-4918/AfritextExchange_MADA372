@@ -4,16 +4,15 @@ plugins {
 
 android {
     namespace = "com.nathan.afritextexchange"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+
+    // FIX 1 & 2: Simplified SDK syntax and changed version to 35 (stable)
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.nathan.afritextexchange"
         minSdk = 24
-        targetSdk = 36
+        // FIX 2: Changed targetSdk to 35
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -36,19 +35,17 @@ android {
 }
 
 dependencies {
+    // FIX 3: Removed all duplicates and organized the list
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.cardview)
+
+    // Testing dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("com.google.android.material:material:1.14.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
-    implementation("androidx.recyclerview:recyclerview:1.4.0")
-    implementation("androidx.cardview:cardview:1.0.0")
-    implementation("androidx.appcompat:appcompat:1.7.1")
-    implementation("androidx.core:core-ktx:1.18.0")
-
 }

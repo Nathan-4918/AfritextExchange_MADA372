@@ -9,6 +9,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.nathan.afritextexchange.R
 import com.nathan.afritextexchange.adapters.BookAdapter
 import com.nathan.afritextexchange.models.Book
+import android.view.Menu
+import android.view.MenuItem
 
 class HomeActivity : AppCompatActivity() {
 
@@ -46,4 +48,19 @@ class HomeActivity : AppCompatActivity() {
         Book(3, "Principles of Economics", "Mankiw", 180.0, "Economics", "Fair", "Some notes in margins.", "Kefilwe S."),
         Book(4, "Human Anatomy", "Gray's Anatomy", 450.0, "Medicine", "Like New", "Used for one semester only.", "Sipho N.")
     )
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.home_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_search -> {
+                startActivity(Intent(this, SearchActivity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 }

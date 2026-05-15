@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -22,6 +23,8 @@
         <activity android:name=".activities.BookDetailActivity" android:exported="false"/>
         <activity android:name=".activities.AddListingActivity" android:exported="false"/>
         <activity android:name=".activities.EnquiryActivity"  android:exported="false"/>
+        <activity android:name=".activities.SearchActivity" android:exported="false"
+            tools:ignore="DuplicateActivity" />
 
     </application>
 </manifest>
