@@ -38,7 +38,7 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
-        // Search icon in toolbar
+
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 

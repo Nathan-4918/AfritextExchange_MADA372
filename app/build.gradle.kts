@@ -5,13 +5,13 @@ plugins {
 android {
     namespace = "com.nathan.afritextexchange"
 
-    // FIX 1 & 2: Simplified SDK syntax and changed version to 35 (stable)
+
     compileSdk = 35
 
     defaultConfig {
         applicationId = "com.nathan.afritextexchange"
         minSdk = 24
-        // FIX 2: Changed targetSdk to 35
+
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -35,7 +35,6 @@ android {
 }
 
 dependencies {
-    // FIX 3: Removed all duplicates and organized the list
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -44,7 +43,6 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.cardview)
 
-    // Testing dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
