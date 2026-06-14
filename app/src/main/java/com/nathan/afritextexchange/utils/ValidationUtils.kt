@@ -10,4 +10,9 @@ object ValidationUtils {
 
     fun isValidPassword(password: String): Boolean =
         password.length >= 6
+
+    fun isValidPrice(price: String): Boolean {
+        val value = price.toDoubleOrNull()
+        return value != null && value > 0
+    }
 }

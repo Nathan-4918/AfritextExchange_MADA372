@@ -1,52 +1,80 @@
 package com.nathan.afritextexchange.activities
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.textfield.TextInputLayout
-import com.nathan.afritextexchange.R
+import com.nathan.afritextexchange.BookRepository
+import com.nathan.afritextexchange.databinding.ActivityAddListingBinding
 import com.nathan.afritextexchange.utils.ValidationUtils
+
 class AddListingActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityAddListingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_listing)
+        binding = ActivityAddListingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Add listing"
+        supportActionBar?.title = "Add Listing"
 
-        val subjects = listOf("Mathematics", "Computer Science", "Economics", "Law", "Medicine", "Engineering", "Other")
+        // Subject dropdown
+        val subjects = listOf("Mathematics", "Computer Science", "Economics",
+            "Law", "Medicine", "Engineering", "Other")
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, subjects)
-        (findViewById<AutoCompleteTextView>(R.id.actv_subject)).setAdapter(adapter)
+        (binding.tilSubject.editText as? AutoCompleteTextView)?.setAdapter(adapter)
 
-        val tilTitle   = findViewById<TextInputLayout>(R.id.til_book_title)
-        val tilAuthor  = findViewById<TextInputLayout>(R.id.til_author)
-        val tilPrice   = findViewById<TextInputLayout>(R.id.til_price)
-
-        findViewById<MaterialButton>(R.id.btn_add_textbook).setOnClickListener {
-            var valid = true
-
-            if (!ValidationUtils.isNotEmpty(tilTitle.editText?.text.toString())) {
-                tilTitle.error = getString(R.string.error_empty_field); valid = false
-            } else tilTitle.error = null
-
-            if (!ValidationUtils.isNotEmpty(tilAuthor.editText?.text.toString())) {
-                tilAuthor.error = getString(R.string.error_empty_field); valid = false
-            } else tilAuthor.error = null
-
-            val priceText = tilPrice.editText?.text.toString()
-            if (!ValidationUtils.isValidPrice(priceText)) {
-                tilPrice.error = getString(R.string.error_invalid_price); valid = false
-            } else tilPrice.error = null
-
-            if (valid) {
+        binding.btnAddTextbook.setOnClickListener {
+            if (validateAndSubmit()) {
                 Toast.makeText(this, "Textbook listed successfully!", Toast.LENGTH_LONG).show()
                 finish()
             }
         }
+    }
+
+    private fun validateAndSubmit(): Boolean {
+        var valid = true
+
+        val title   = binding.tilBookTitle.editText?.text.toString().trim()
+        val author  = binding.tilAuthor.editText?.text.toString().trim()
+        val price   = binding.tilPrice.editText?.text.toString().trim()
+        val subject = binding.tilSubject.editText?.text.toString().trim()
+
+        // Validate using binding to show inline errors
+        if (!ValidationUtils.isNotEmpty(title)) {
+            binding.tilBookTitle.error = getString(com.nathan.afritextexchange.R.string.error_empty_field)
+            valid = false
+        } else {
+            binding.tilBookTitle.error = null
+        }
+
+        if (!ValidationUtils.isNotEmpty(author)) {
+            binding.tilAuthor.error = getString(com.nathan.afritextexchange.R.string.error_empty_field)
+            valid = false
+        } else {
+            binding.tilAuthor.error = null
+        }
+
+        if (!ValidationUtils.isValidPrice(price)) {
+            binding.tilPrice.error = getString(com.nathan.afritextexchange.R.string.error_invalid_price)
+            valid = false
+        } else {
+            binding.tilPrice.error = null
+        }
+
+        // If all valid, save to the shared repository
+        if (valid) {
+            BookRepository.addBook(
+                title   = title,
+                author  = author,
+                price   = price.toDouble(),
+                subject = subject.ifEmpty { "Other" }
+            )
+        }
+
+        return valid
     }
 
     override fun onSupportNavigateUp(): Boolean { onBackPressed(); return true }
