@@ -20,12 +20,12 @@ This project was developed as part of the **MADA372 – Mobile Application Devel
 
 ## Features
 
-- 📖 **Textbook Browsing** — Featured and latest listings displayed on the home screen using RecyclerView
-- 🔍 **Search & Filter** — Live keyword search with subject chip filters
-- 📄 **Book Detail View** — Full listing information including seller, condition, edition and price
-- ✉️ **Send Enquiry** — Message the seller directly from the book detail screen
-- ➕ **Add Listing** — Students can list their own textbooks with full input validation
-- 🧭 **Bottom Navigation** — Structured navigation between Home, Search, and Add Listing screens
+-  **Textbook Browsing** — Featured and latest listings displayed on the home screen using RecyclerView
+-  **Search & Filter** — Live keyword search with subject chip filters
+-  **Book Detail View** — Full listing information including seller, condition, edition and price
+-  **Send Enquiry** — Message the seller directly from the book detail screen
+-  **Add Listing** — Students can list their own textbooks with full input validation
+-  **Bottom Navigation** — Structured navigation between Home, Search, and Add Listing screens
 
 
 ## Project Structure
