@@ -20,7 +20,6 @@ class AddListingActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Add Listing"
 
-        // Subject dropdown
         val subjects = listOf("Mathematics", "Computer Science", "Economics",
             "Law", "Medicine", "Engineering", "Other")
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, subjects)
@@ -42,7 +41,6 @@ class AddListingActivity : AppCompatActivity() {
         val price   = binding.tilPrice.editText?.text.toString().trim()
         val subject = binding.tilSubject.editText?.text.toString().trim()
 
-        // Validate using binding to show inline errors
         if (!ValidationUtils.isNotEmpty(title)) {
             binding.tilBookTitle.error = getString(com.nathan.afritextexchange.R.string.error_empty_field)
             valid = false

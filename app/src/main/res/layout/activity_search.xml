@@ -8,7 +8,6 @@
     android:orientation="vertical"
     tools:context=".SearchActivity">
 
-    <!-- Search bar row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,7 +44,6 @@
             android:text="Filter" />
     </LinearLayout>
 
-    <!-- Filter chips (hidden until Filter is tapped) -->
     <HorizontalScrollView
         android:id="@+id/hsv_filters"
         android:layout_width="match_parent"
@@ -73,12 +71,10 @@
                 android:text="All"
                 android:checked="true" />
 
-            <!-- Add other chips as you had them -->
 
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
-    <!-- Result count -->
     <TextView
         android:id="@+id/tv_result_count"
         android:layout_width="wrap_content"
@@ -90,7 +86,6 @@
         android:textSize="13sp"
         tools:text="15 books found" />
 
-    <!-- Results list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_search_results"
         android:layout_width="match_parent"
@@ -98,7 +93,6 @@
         android:layout_weight="1"
         tools:listitem="@layout/item_book" />
 
-    <!-- Empty state -->
     <TextView
         android:id="@+id/tv_empty"
         android:layout_width="match_parent"

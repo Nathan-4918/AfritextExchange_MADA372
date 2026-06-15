@@ -17,7 +17,7 @@ class BookDetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Book Details"
 
-        // Reconstruct Book from intent extras, then bind the whole object at once
+
         val book = Book(
             id          = 0,
             title       = intent.getStringExtra("BOOK_TITLE")       ?: "",
@@ -30,7 +30,6 @@ class BookDetailActivity : AppCompatActivity() {
             edition     = intent.getStringExtra("BOOK_EDITION")     ?: ""
         )
 
-        // One line sets ALL the @{book.x} fields in the XML
         binding.book = book
 
         binding.btnSendEnquiry.setOnClickListener {
